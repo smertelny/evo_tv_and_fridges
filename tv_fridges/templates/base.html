@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}EVO Summer camp task {% endblock title %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="{% url 'core:index' %}"{% if request.path ==  "/" %}class="active"{% endif %}>Main</a></li>
+      <li><a href="{% url 'core:tv_list' %}"{% if request.path ==  "/tv" %}class="active"{% endif %}>TVs</a></li>
+      <li><a href="{% url 'core:fridge_list' %}"{% if request.path == "/fridge" %}class="active"{% endif %}>Fridges</a></li>
+    </ul>
+  </nav>
+  {% block content %}{% endblock content %}
+  {% block staticfiles %}{% endblock staticfiles %}
+</body>
+</html>

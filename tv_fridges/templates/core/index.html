@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}All tv and fridges | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<div class="wrapper">
+  {% include "ordering.html" %}
+  <table class="item">
+  <tr>
+    <td>Name</td>
+    <td>Clicks</td>
+    <td>Increse clicks</td>
+  </tr>
+  {% for item in object_list %}
+  <tr>
+    <td><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></td>
+    <td><span id="{{ item.id }}">{{ item.clicks }}</span></td>
+    <td><button onclick="increase(this)" data-id="{{ item.id }}">+</button></td>
+  </tr>
+  {% endfor %}
+  </table>
+</div>
+{% endblock content %}
+
+{% block staticfiles %}<script src="{% static 'js/index.js' %}"></script>{% endblock staticfiles %}

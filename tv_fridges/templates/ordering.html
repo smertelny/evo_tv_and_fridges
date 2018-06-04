@@ -1,0 +1,5 @@
+{% if request.GET.sort == 'true' %}
+<a href="{{ request.path }}">Order by name</a> | <span>Order by clicks</span>
+{% else %}
+<span>Order by name</span> | <a href="{{ request.path }}?sort=true">Order by clicks</a>
+{% endif %}
