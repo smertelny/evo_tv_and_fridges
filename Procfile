@@ -1,0 +1,1 @@
+web: env PYTHONPATH=$PYTHONPATH:$PWD/tv_fridges gunicorn --env DJANGO_SETTINGS_MODULE=tv_fridges.settings_prod tv_fridges.wsgi
